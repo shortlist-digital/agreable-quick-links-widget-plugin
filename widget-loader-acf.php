@@ -1,34 +1,35 @@
 <?php
 
+$key = 'widget_quick-links';
 $widgetplacement = self::$config['tab_placement'];
 
 $widget_config = array (
-  'key' => 'widget_quick-links',
+  'key' => $key,
   'name' => 'quick-links',
   'label' => 'Quick Links',
   'display' => 'row',
   'sub_fields' => array (
     array (
-      'key' => 'quick_links_basic_details_tab',
+      'key' => $key . '_basic_details_tab',
       'label' => 'Basic Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
     ),
      array (
-      'key' => 'widget_quick-links_quick-links',
+      'key' => $key . '_quick-links',
       'label' => 'Quick Links',
       'name' => 'quick_links',
       'type' => 'flexible_content',
       'button_label' => 'Add Link',
       'layouts' => array (
         array (
-          'key' => 'widget_quick-links_link',
+          'key' => $key . '_link',
           'name' => 'link',
           'label' => 'Link',
           'display' => 'block',
           'sub_fields' => array (
             array (
-              'key' => 'widget_quick-links_link_label',
+              'key' => $key . '_link_label',
               'label' => 'Label',
               'name' => 'label',
               'type' => 'text',
@@ -39,7 +40,7 @@ $widget_config = array (
               ),
             ),
             array (
-              'key' => 'widget_quick-links_link_id',
+              'key' => $key . '_link_id',
               'label' => 'ID',
               'name' => 'id',
               'type' => 'text',
@@ -54,13 +55,13 @@ $widget_config = array (
       ),
     ),
     array (
-      'key' => 'quick_links_advanced_details_tab',
+      'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
     ),
     array (
-      'key' => 'quick_links_colour',
+      'key' => 'quick_links_colour', // needs a migration
       'label' => 'Colour',
       'name' => 'colour',
       'type' => 'color_picker',
@@ -68,5 +69,5 @@ $widget_config = array (
   ),
 );
 
-$widget_config["content-types"] = array('sponsored_longform', 'sponsored_hub'); // section, post
+$widget_config["content-types"] = get_option("options_" . $key . "_available_post_types");
 $widget_config["content-sizes"] = array('main', 'main-full-bleed'); // main, main-full-bleed, sidebar
