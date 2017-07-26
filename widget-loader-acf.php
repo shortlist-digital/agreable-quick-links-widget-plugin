@@ -59,14 +59,8 @@ $widget_config = array (
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
-    ),
-    array (
-      'key' => 'quick_links_colour', // needs a migration
-      'label' => 'Colour',
-      'name' => 'colour',
-      'type' => 'color_picker',
-    ),
-  ),
+    )
+  )
 );
 
 $widget_config["content-types"] = get_option("options_" . $key . "_available_post_types");
